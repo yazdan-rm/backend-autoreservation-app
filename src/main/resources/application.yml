@@ -4,8 +4,36 @@ spring:
     username: autoreservationapp
     url: jdbc:mysql://localhost:3306/full-stack-autoreservationapp?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
     password: autoreservationapp
+
+
   jpa:
     open-in-view: 'false'
+
+
   data:
     rest:
-      base-path: /api
+      base-path: '/api'
+
+
+
+  banner:
+    location: 'banner'
+
+
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          core: 'trace'
+
+
+
+      hibernate:
+        SQL: 'trace'
+
+
+
+        orm:
+          jdbc:
+            bind: 'trace'
