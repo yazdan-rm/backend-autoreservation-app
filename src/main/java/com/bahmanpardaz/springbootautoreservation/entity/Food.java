@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
+import java.util.Set;
+import java.util.TreeSet;
 
 @Entity
 @Table(name = "food")
@@ -17,17 +19,17 @@ public class Food {
     @Column(name = "id")
     private Long id ;
 
-    @ManyToOne(cascade = {
+    @ManyToMany(cascade = {
                             CascadeType.DETACH,
-                            CascadeType.MERGE,
                             CascadeType.MERGE,
                             CascadeType.PERSIST,
                             CascadeType.REFRESH})
-    @JoinColumn( name = "food_group_id", nullable = false)
-    private FoodGroup foodGroup;
-
-    @Column(name = "qty")
-    private Integer qty;
+    @JoinTable(
+            name = "food_group",
+            joinColumns = @JoinColumn(name = "food_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id")
+    )
+    private Set<Group> groups;
 
     @Column(name = "food_name")
     private String foodName;
@@ -45,4 +47,11 @@ public class Food {
     @Column(name = "date_update")
     @CreationTimestamp
     private Date dateUpdate;
+
+
+    public void addGroup(Group group){
+        if(group == null)
+            groups = new TreeSet<>();
+        groups.add(group);
+    }
 }

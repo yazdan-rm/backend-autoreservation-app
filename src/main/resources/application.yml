@@ -6,9 +6,12 @@ spring:
     password: autoreservationapp
 
 
+
+
   jpa:
     open-in-view: 'false'
-
+    hibernate:
+      ddl-auto: update
 
   data:
     rest:
@@ -36,4 +39,6 @@ logging:
 
         orm:
           jdbc:
-            bind: 'trace'
+
+
+          bind: 'trace'
