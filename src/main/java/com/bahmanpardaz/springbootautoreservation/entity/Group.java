@@ -1,14 +1,24 @@
 package com.bahmanpardaz.springbootautoreservation.entity;
 
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 @Entity
 @Table(name = "groups_f")
-@Setter @Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 public class Group {
 
     @Id
@@ -19,26 +29,11 @@ public class Group {
     @Column(name = "group_name")
     private String groupName;
 
-
     @Column(name = "qty_member")
     private Long qtyMember;
 
+    @Column(name = "date_created")
+    @CreationTimestamp
+    private Date dateCreated;
 
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "food_group",
-            joinColumns = @JoinColumn(name = "group_id"),
-            inverseJoinColumns = @JoinColumn(name = "food_id")
-    )
-    Set<Food> foods;
-
-
-    public void addFood(Food food){
-        if(foods == null){
-            foods = new TreeSet<>();
-        }
-
-        foods.add(food);
-    }
 }

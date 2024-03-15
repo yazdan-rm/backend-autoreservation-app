@@ -7,7 +7,6 @@ spring:
 
 
 
-
   jpa:
     open-in-view: 'false'
     hibernate:
@@ -42,3 +41,5 @@ logging:
 
 
           bind: 'trace'
+server:
+  port: 9090
