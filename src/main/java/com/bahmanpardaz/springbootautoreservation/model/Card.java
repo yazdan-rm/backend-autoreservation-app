@@ -1,10 +1,12 @@
-package com.bahmanpardaz.springbootautoreservation.entity;
+package com.bahmanpardaz.springbootautoreservation.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -20,6 +22,6 @@ public class Card {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "date_created")
-    private Date dateCreated;
+    @Column(name = "date_created", nullable = false)
+    private LocalDateTime dateCreated;
 }
