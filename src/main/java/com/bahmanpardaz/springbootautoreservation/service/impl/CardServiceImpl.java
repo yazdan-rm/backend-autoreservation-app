@@ -6,8 +6,6 @@ import com.bahmanpardaz.springbootautoreservation.exception.ResourceNotFoundExce
 import com.bahmanpardaz.springbootautoreservation.model.Card;
 import com.bahmanpardaz.springbootautoreservation.repository.CardRepository;
 import com.bahmanpardaz.springbootautoreservation.service.CardService;
-import lombok.AllArgsConstructor;
-import org.hibernate.event.spi.PostCollectionRecreateEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,7 +13,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class CardServiceImpl implements CardService {
