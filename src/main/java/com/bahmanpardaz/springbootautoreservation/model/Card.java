@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -23,4 +24,8 @@ public class Card {
 
     @Column(name = "date_created", nullable = false)
     private LocalDateTime dateCreated;
+
+    @Column(name = "date_updated")
+    @UpdateTimestamp
+    private LocalDateTime dateUpdated;
 }

@@ -6,6 +6,7 @@ import com.bahmanpardaz.springbootautoreservation.exception.ResourceNotFoundExce
 import com.bahmanpardaz.springbootautoreservation.model.Card;
 import com.bahmanpardaz.springbootautoreservation.repository.CardRepository;
 import com.bahmanpardaz.springbootautoreservation.service.CardService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,10 +19,13 @@ import java.util.List;
 public class CardServiceImpl implements CardService {
 
     private final CardRepository cardRepository;
+    private final ModelMapper modelMapper;
 
     @Autowired
-    public CardServiceImpl(CardRepository cardRepository) {
+    public CardServiceImpl(CardRepository cardRepository,
+                           ModelMapper modelMapper) {
         this.cardRepository = cardRepository;
+        this.modelMapper = modelMapper;
     }
 
     @Override
@@ -91,18 +95,20 @@ public class CardServiceImpl implements CardService {
     }
 
     private CardDto mapToDTO(Card card){
+        CardDto cardDto = modelMapper.map(card, CardDto.class);
         // covert Entity to DTO
-        CardDto cardDto = new CardDto();
-        cardDto.setId(card.getId());
-        cardDto.setDateCreated(card.getDateCreated());
+//        CardDto cardDto = new CardDto();
+//        cardDto.setId(card.getId());
+//        cardDto.setDateCreated(card.getDateCreated());
         return cardDto;
     }
 
     private Card mapToEntity(CardDto cardDto){
+        Card card = modelMapper.map(cardDto, Card.class);
         // covert DTO to Entity
-        Card card = new Card();
-        card.setId(cardDto.getId());
-        card.setDateCreated(cardDto.getDateCreated());
+//        Card card = new Card();
+//        card.setId(cardDto.getId());
+//        card.setDateCreated(cardDto.getDateCreated());
         return card;
     }
 }
