@@ -12,7 +12,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.util.Date;
 
 @Entity
-@Table(name = "food")
+@Table(name = "foods")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -26,6 +26,9 @@ public class Food {
 
     @Column(name = "food_name")
     private String foodName;
+
+    @Column(name = "food_description")
+    private String description;
 
     @CreationTimestamp
     @Column(name = "date_created")

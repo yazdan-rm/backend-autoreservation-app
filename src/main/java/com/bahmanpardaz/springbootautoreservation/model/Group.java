@@ -12,7 +12,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.util.Date;
 
 @Entity
-@Table(name = "group")
+@Table(name = "groupss")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter

@@ -4,6 +4,7 @@ package com.bahmanpardaz.springbootautoreservation.controller;
 import com.bahmanpardaz.springbootautoreservation.dto.CardDto;
 import com.bahmanpardaz.springbootautoreservation.dto.CardResponse;
 import com.bahmanpardaz.springbootautoreservation.service.CardService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class CardController {
     }
 
     @PostMapping
-    public ResponseEntity<CardDto> createCard(@RequestBody CardDto cardDto){
+    public ResponseEntity<CardDto> createCard(@Valid @RequestBody CardDto cardDto){
         return new ResponseEntity<>(this.cardService.createCard(cardDto), HttpStatus.CREATED);
     }
 
@@ -45,7 +46,7 @@ public class CardController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CardDto> cardUpdate(@RequestBody CardDto cardDto, @PathVariable(name = "id") long id){
+    public ResponseEntity<CardDto> cardUpdate(@Valid @RequestBody CardDto cardDto, @PathVariable(name = "id") long id){
         CardDto cardResponse = cardService.updateCard(cardDto, id);
         return new ResponseEntity<>(cardResponse, HttpStatus.OK);
     }
