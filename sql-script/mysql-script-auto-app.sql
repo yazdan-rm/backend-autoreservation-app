@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `full-stack-autoreservationapp` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `full-stack-autoreservationapp`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: full-stack-autoreservationapp
@@ -16,27 +18,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `card`
+-- Table structure for table `cards`
 --
 
-DROP TABLE IF EXISTS `card`;
+DROP TABLE IF EXISTS `cards`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `card` (
+CREATE TABLE `cards` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `date_created` datetime(6) DEFAULT NULL,
+  `date_updated` datetime(6) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `card`
+-- Dumping data for table `cards`
 --
 
-LOCK TABLES `card` WRITE;
-/*!40000 ALTER TABLE `card` DISABLE KEYS */;
-INSERT INTO `card` VALUES (1,'2024-03-12 18:53:42.000000'),(2,'2024-03-12 18:53:42.000000'),(3,'2024-03-11 00:00:00.000000'),(4,'2024-03-10 00:00:00.000000'),(5,'2024-03-09 18:53:42.000000'),(6,'2024-03-08 00:00:00.000000'),(7,'2024-03-14 13:51:30.000000');
-/*!40000 ALTER TABLE `card` ENABLE KEYS */;
+LOCK TABLES `cards` WRITE;
+/*!40000 ALTER TABLE `cards` DISABLE KEYS */;
+INSERT INTO `cards` VALUES (1,'2024-03-12 18:53:42.000000',NULL),(2,'2024-03-12 18:53:42.000000',NULL),(4,'2024-03-10 00:00:00.000000',NULL),(5,'2024-03-09 18:53:42.000000',NULL),(6,'2024-03-08 00:00:00.000000',NULL),(7,'2024-03-14 13:51:30.000000',NULL),(8,'2024-03-22 13:57:41.000000',NULL),(9,'2024-03-21 13:57:48.000000',NULL),(10,'2024-03-20 13:58:04.000000',NULL),(11,'2024-03-17 13:58:11.000000',NULL),(12,'2024-03-10 13:58:15.000000',NULL),(13,'2024-03-16 13:58:20.000000',NULL),(14,'2024-03-18 13:58:37.000000',NULL),(15,'2024-03-15 13:58:42.000000',NULL),(16,'2024-03-22 13:58:47.000000',NULL),(17,'2024-03-22 13:58:53.000000',NULL),(18,'2020-03-22 12:58:56.000000',NULL),(19,'2024-03-28 03:35:55.000000','2024-03-31 14:55:40.848007'),(20,'2024-03-12 15:23:42.000000','2024-04-02 02:15:15.155228'),(21,'2024-03-12 15:23:42.000000','2024-04-02 02:15:51.728314'),(22,'2024-04-02 07:30:00.000000','2024-04-02 02:32:55.495602'),(23,'2024-04-02 04:30:00.000000','2024-04-02 02:38:39.908254'),(24,'2024-04-02 06:41:00.000000','2024-04-02 02:40:59.209763'),(25,'2024-04-02 02:45:34.000000','2024-04-02 02:45:35.584501'),(26,'2024-04-02 02:46:55.000000','2024-04-02 02:46:58.589773'),(27,'2024-04-02 02:48:33.000000','2024-04-02 02:48:36.355692'),(28,'2024-04-02 02:50:36.000000','2024-04-02 02:50:39.002000'),(29,'2024-04-02 02:50:36.000000','2024-04-02 02:52:12.889000'),(30,'2024-04-02 02:57:19.000000','2024-04-02 02:57:24.064000'),(31,'2024-04-02 03:00:52.000000','2024-04-02 03:00:55.253000'),(32,'2024-04-02 03:01:24.000000','2024-04-02 03:01:29.088000'),(33,'2024-04-02 03:02:41.000000','2024-04-02 03:02:45.551000');
+/*!40000 ALTER TABLE `cards` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -89,84 +92,58 @@ INSERT INTO `course_tbl_seq` VALUES (1);
 UNLOCK TABLES;
 
 --
--- Table structure for table `food`
+-- Table structure for table `foods`
 --
 
-DROP TABLE IF EXISTS `food`;
+DROP TABLE IF EXISTS `foods`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `food` (
+CREATE TABLE `foods` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `active` bit(1) DEFAULT NULL,
   `date_created` datetime(6) DEFAULT NULL,
   `date_update` datetime(6) DEFAULT NULL,
   `food_name` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
+  `food_description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `food`
+-- Dumping data for table `foods`
 --
 
-LOCK TABLES `food` WRITE;
-/*!40000 ALTER TABLE `food` DISABLE KEYS */;
-INSERT INTO `food` VALUES (1,_binary '','2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 1','./assets/images/foods/f1.jpg'),(2,_binary '','2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 2','./assets/images/foods/f2.jpg'),(3,_binary '','2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 3','./assets/images/foods/f3.jpg'),(4,_binary '','2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 4','./assets/images/foods/f4.jpg'),(5,_binary '','2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 5','./assets/images/foods/f22.jpg'),(6,_binary '','2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 6','./assets/images/foods/f1.jpg'),(7,_binary '','2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 7','./assets/images/foods/f1.jpg');
-/*!40000 ALTER TABLE `food` ENABLE KEYS */;
+LOCK TABLES `foods` WRITE;
+/*!40000 ALTER TABLE `foods` DISABLE KEYS */;
+INSERT INTO `foods` VALUES (1,'2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 1','./assets/images/foods/f1.jpg',NULL),(2,'2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 2','./assets/images/foods/f2.jpg',NULL),(3,'2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 3','./assets/images/foods/f3.jpg',NULL),(4,'2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 4','./assets/images/foods/f4.jpg',NULL),(5,'2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 5','./assets/images/foods/f22.jpg',NULL),(6,'2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 6','./assets/images/foods/f1.jpg',NULL),(7,'2024-03-06 22:29:04.000000','2024-03-06 22:29:04.000000','غذای 7','./assets/images/foods/f1.jpg',NULL);
+/*!40000 ALTER TABLE `foods` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `food_group`
+-- Table structure for table `groupss`
 --
 
-DROP TABLE IF EXISTS `food_group`;
+DROP TABLE IF EXISTS `groupss`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `food_group` (
-  `group_id` bigint NOT NULL,
-  `food_id` bigint NOT NULL,
-  PRIMARY KEY (`group_id`,`food_id`),
-  KEY `FK6av6r2b2iauqxxs56igmr3sfu` (`food_id`),
-  CONSTRAINT `FK6av6r2b2iauqxxs56igmr3sfu` FOREIGN KEY (`food_id`) REFERENCES `food` (`id`),
-  CONSTRAINT `FKjrkce9qt18gdmq8tmkxrjjf5p` FOREIGN KEY (`group_id`) REFERENCES `groups_f` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `food_group`
---
-
-LOCK TABLES `food_group` WRITE;
-/*!40000 ALTER TABLE `food_group` DISABLE KEYS */;
-INSERT INTO `food_group` VALUES (1,1),(1,2);
-/*!40000 ALTER TABLE `food_group` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `groups_f`
---
-
-DROP TABLE IF EXISTS `groups_f`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `groups_f` (
+CREATE TABLE `groupss` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `group_name` varchar(255) DEFAULT NULL,
   `qty_member` bigint DEFAULT NULL,
   `date_created` datetime(6) DEFAULT NULL,
+  `date_update` datetime(6) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `groups_f`
+-- Dumping data for table `groupss`
 --
 
-LOCK TABLES `groups_f` WRITE;
-/*!40000 ALTER TABLE `groups_f` DISABLE KEYS */;
-INSERT INTO `groups_f` VALUES (1,'گروه 1',4,NULL),(2,'گروه 2',4,NULL),(3,'گروه 3',4,NULL),(4,'گروه 4',4,NULL),(5,'گروه 5',4,NULL);
-/*!40000 ALTER TABLE `groups_f` ENABLE KEYS */;
+LOCK TABLES `groupss` WRITE;
+/*!40000 ALTER TABLE `groupss` DISABLE KEYS */;
+INSERT INTO `groupss` VALUES (1,'گروه 1',4,NULL,NULL),(2,'گروه 2',4,NULL,NULL),(3,'گروه 3',4,NULL,NULL),(4,'گروه 4',4,NULL,NULL),(5,'گروه 5',4,NULL,NULL);
+/*!40000 ALTER TABLE `groupss` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -231,4 +208,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-16  2:19:47
+-- Dump completed on 2024-04-02  7:22:23

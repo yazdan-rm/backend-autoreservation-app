@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "cards")
@@ -27,5 +28,5 @@ public class Card {
 
     @Column(name = "date_updated")
     @UpdateTimestamp
-    private LocalDateTime dateUpdated;
+    private Date dateUpdated;
 }
