@@ -52,8 +52,8 @@ public class CardController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteCard(@PathVariable(name = "id") long id){
-        this.cardService.deleteCardById(id);
-        return new ResponseEntity<>("Card entity has been deleted successfully", HttpStatus.OK);
+    public ResponseEntity<CardDto> deleteCard(@PathVariable(name = "id") long id){
+        CardDto cardResponse = this.cardService.deleteCardById(id);
+        return new ResponseEntity<>(cardResponse, HttpStatus.OK);
     }
 }

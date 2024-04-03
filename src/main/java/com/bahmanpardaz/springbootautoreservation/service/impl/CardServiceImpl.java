@@ -87,11 +87,12 @@ public class CardServiceImpl implements CardService {
     }
 
     @Override
-    public void deleteCardById(long id) {
+    public CardDto deleteCardById(long id) {
         Card card = cardRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("card", "id", id)
         );
         this.cardRepository.delete(card);
+        return mapToDTO(card);
     }
 
     private CardDto mapToDTO(Card card){

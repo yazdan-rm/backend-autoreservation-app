@@ -8,5 +8,5 @@ public interface CardService {
     CardResponse getAllCards(Long pageNo, Long pageSize, String sortBy, String sortDir);
     CardDto getCardById(Long id );
     CardDto updateCard(CardDto cardDto, Long id);
-    void deleteCardById(long id);
+    CardDto deleteCardById(long id);
 }
